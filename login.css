@@ -30,7 +30,11 @@ body {
 }
 
 #name-login,
-#password {
+#password,
+#first_name,
+#last_name,
+#phone_number,
+#confirmPassWord {
     outline: none;
     font-size: .9em;
     padding: 1em 3em 1em 1em;

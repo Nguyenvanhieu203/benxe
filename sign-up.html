@@ -18,15 +18,27 @@
         <div class="form">
             <form action="" class="myform">
                 <p>
+                    <input type="text" name="" id="first_name" placeholder=" First Name">
+                    <i class="lock-two-icon fa-solid fa-lock"></i>
+                </p>
+                <p>
+                    <input type="text" name="" id="last_name" placeholder=" Last Name">
+                    <i class="lock-two-icon fa-solid fa-lock"></i>
+                </p>
+                <p>
                     <input type="text" name="" id="name-login" placeholder="    E-mail">
                     <i class="user-icon fa-solid fa-user"></i>
+                </p>
+                <p>
+                    <input type="text" name="" id="phone_number" placeholder=" Phone number">
+                    <i class="lock-two-icon fa-solid fa-lock"></i>
                 </p>
                 <p>
                     <input type="password" name="" id="password" placeholder="    Password">
                     <i class="lock-icon fa-solid fa-lock"></i>
                 </p>
                 <p>
-                    <input type="password" name="" id="password" placeholder=" Confirm password">
+                    <input type="password" name="" id="confirmPassWord" placeholder=" Confirm password">
                     <i class="lock-two-icon fa-solid fa-lock"></i>
                 </p>
                 <p class="forgot-password">
@@ -34,8 +46,8 @@
                         Login
                     </a>
                 </p>
-                <button id="btn" class="btn" onclick="event.preventDefault();login();checkLogin();showAvt()" >
-                    <a href="" >Confirm</a>
+                <button id="btn" class="btn" onclick="signin()" >
+                    <a href="#" >Confirm</a>
                 </button>
             </form>
         </div>

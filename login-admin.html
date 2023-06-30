@@ -130,7 +130,7 @@
                 
                 <li class="navbar-item-element " id="admin" >
                     <img src="./assest/img/user-img.jpg" alt="" class="img-user">
-                    <span>Admin</span>
+                    <span id="Name_Login">Admin</span>
                     <ul class="out">
                         <li class=" out-sub">
                             <i class="fa-solid fa-right-from-bracket"></i>
@@ -460,5 +460,14 @@
         }
         window.onload = test;
     </script>
+    <script>
+        // Lấy tên đăng nhập từ localStorage
+        const username = localStorage.getItem("username");
+        // Hiển thị tên đăng nhập
+        const nameLoginElement = document.getElementById("Name_Login");
+        if (nameLoginElement) {
+          nameLoginElement.innerText = username;
+        }
+        </script>
 </body>
 </html>
