@@ -68,7 +68,7 @@ function in_danhsachXe() {
         cell8.innerHTML = obj.diachi;
         cell9.innerHTML = obj.email;
         cell10.innerHTML = obj.sodienthoai;
-        cell11.innerHTML = "<a href='#' onclick='onEdit(this)'><button>Sửa</button></a> <a href='#' onclick='onDel(this)'><button>Xóa</button></a>";
+        cell11.innerHTML = "<a href='#' onclick='onEdit(this)'><button>Sửa</button></a> <a href='#' onclick='onDelete(this)'><button>Xóa</button></a>";
     }
 }
 
@@ -123,14 +123,22 @@ function update() {
     document.getElementById("ad").style.display = "block";
 }
 
-function Del(el) {
+function onDelete(el) {
     var selectedRow = el.parentElement.parentElement;
-    selectedIndex = parseInt(selectedRow.cells[0].innerText) - 1;
-    if(confirm("Bạn có chắc chắn muốn xóa không ?")){
-        arrQuanly.splice(selectedIndex,1);
-        in_danhsachXe();
+  
+    // Lấy giá trị id từ hàng được chọn
+    var id = selectedRow.cells[1].innerText;
+  
+    // Xác nhận xóa
+    var confirmation = confirm("Bạn có chắc chắn muốn xóa phần tử với biển kiểm soát: " + id + "?");
+    if (confirmation) {
+      // Xóa hàng trong DOM
+      selectedRow.remove();
+      console.log("Đã xóa phần tử với id: " + id);
+    } else {
+      console.log("Hủy xóa phần tử với id: " + id);
     }
-}
+  }
 
 function resetForm() {
     document.getElementById("id").value = "";

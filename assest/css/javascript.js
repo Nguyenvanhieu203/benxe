@@ -8,11 +8,15 @@ function hidden_search() {
 function checkLogin() {
   var name = document.getElementById("name-login").value;
   var password = document.getElementById("password").value;
+  var confirmpassword = document.getElementById("confirmPassWord").value;
   if(name == "") {
     alert("Vui lòng nhập Email !");
   }
   if(password == "") {
       alert("VUi lòng nhập mật khẩu");
+  }
+  if(password != confirmpassword) {
+    alert("Vui lòng điền hai mật khẩu giống nhau");
   }
 }
 
@@ -51,6 +55,7 @@ function login() {
   })
   .then((response) => {
       if (!response.ok) {
+        alert("Đăng nhập không thành công.\nVui lòng kiểm tra lại tài khoản và mật khẩu");
       throw new Error("Đăng nhập không thành công.");
       }
       return response.json();
@@ -59,7 +64,7 @@ function login() {
       // Xử lý dữ liệu trả về từ API
       //console.log(data);
       const setjson=JSON.stringify(data);
-      localStorage.setItem("key",setjson);
+      localStorage.setItem("login",setjson);
       // Thực hiện các hành động khác sau khi đăng nhập thành công
       const namelogin = data.name;
       localStorage.setItem("username",namelogin);
@@ -74,6 +79,7 @@ function login() {
 // sign up
 function signin() {
   const signinUrl = "https://localhost:44355/api/Account/SignUp";
+  const role = document.getElementById("role").value;
   const firstname = document.getElementById("first_name").value;
   const lastname = document.getElementById("last_name").value;
   const username = document.getElementById("name-login").value;
@@ -96,7 +102,7 @@ function signin() {
   })
   .then((response) => {
       if (!response.ok) {
-      alert("Đăng ký không thành công.")
+      alert("Đăng ký không thành công.\nVui long kiểm tra lại")
       throw new Error("Đăng ký không thành công.");
       }
       return response.json();
@@ -117,6 +123,9 @@ function signin() {
   });
 }
 
-
+function DeleteLocalStorage() {
+  localStorage.removeItem("login");
+  localStorage.removeItem("username");
+}
 
 
